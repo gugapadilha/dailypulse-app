@@ -14,30 +14,31 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.guga.dailypulse.Platform
-
-
 @Composable
-fun AboutScreen(){
+fun AboutScreen() {
     Column {
         Toolbar()
         ContentView()
     }
 }
 
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun Toolbar() {
     TopAppBar(
         title = {
-        Text(text = "About Device")
-    })
+            Text(
+                text = "About Device",
+                fontWeight = FontWeight.Medium
+            )
+        })
 }
 
 @Composable
-private fun ContentView(){
+private fun ContentView() {
     val items = makeItems()
 
     LazyColumn(modifier = Modifier.fillMaxSize()) {
@@ -47,7 +48,7 @@ private fun ContentView(){
     }
 }
 
-private fun makeItems(): List<Pair<String, String>>{
+private fun makeItems(): List<Pair<String, String>> {
     val platform = Platform()
     platform.logSystemInfo()
 
@@ -62,7 +63,7 @@ private fun makeItems(): List<Pair<String, String>>{
 private fun RowView(
     title: String,
     subtitle: String
-){
+) {
     Column(modifier = Modifier.fillMaxWidth()) {
         Column(modifier = Modifier.padding(8.dp)) {
             Text(
@@ -70,7 +71,7 @@ private fun RowView(
                 style = MaterialTheme.typography.bodySmall,
                 color = Color.Gray
             )
-            Text(text = subtitle, style = MaterialTheme.typography.bodyLarge )
+            Text(text = subtitle, style = MaterialTheme.typography.bodyLarge)
         }
         Divider()
     }
