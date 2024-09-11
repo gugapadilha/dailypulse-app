@@ -1,4 +1,4 @@
-package com.guga.dailypulse.android
+package com.petros.efthymiou.dailypulse.android
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.shape.RoundedCornerShape

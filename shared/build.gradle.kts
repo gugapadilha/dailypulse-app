@@ -1,9 +1,13 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    id("co.touchlab.skie") version "0.4.19"
 }
 
+@OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
+    targetHierarchy.default()
+
     androidTarget {
         compilations.all {
             kotlinOptions {
@@ -19,19 +23,14 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "shared"
-            isStatic = true
         }
     }
 
     sourceSets {
-        commonMain.dependencies {
-            //put your multiplatform dependencies here
+        val commonMain by getting {
             dependencies {
                 implementation(libs.kotlinx.coroutines.core)
             }
-        }
-        commonTest.dependencies {
-            implementation(libs.kotlin.test)
         }
 
         val androidMain by getting {
@@ -39,17 +38,25 @@ kotlin {
                 implementation(libs.androidx.lifecycle.viewmodel.ktx)
             }
         }
+
+        val iosMain by getting {
+            dependencies {
+
+            }
+        }
+
+        val commonTest by getting {
+            dependencies {
+                implementation(libs.kotlin.test)
+            }
+        }
     }
 }
 
 android {
-    namespace = "com.guga.dailypulse"
+    namespace = "com.petros.efthymiou.dailypulse"
     compileSdk = 34
     defaultConfig {
         minSdk = 24
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
     }
 }

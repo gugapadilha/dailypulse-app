@@ -4,10 +4,10 @@ plugins {
 }
 
 android {
-    namespace = "com.guga.dailypulse.android"
+    namespace = "com.petros.efthymiou.dailypulse.android"
     compileSdk = 34
     defaultConfig {
-        applicationId = "com.guga.dailypulse.android"
+        applicationId = "com.petros.efthymiou.dailypulse.android"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -21,7 +21,7 @@ android {
     }
     packaging {
         resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "/META-INF/**"
         }
     }
     buildTypes {
@@ -44,5 +44,7 @@ dependencies {
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.material3)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.coil.compose)
+    implementation(libs.androidx.navigation.compose)
     debugImplementation(libs.compose.ui.tooling)
 }

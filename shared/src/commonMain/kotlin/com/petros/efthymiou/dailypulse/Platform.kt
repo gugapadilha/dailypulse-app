@@ -1,4 +1,4 @@
-package com.guga.dailypulse
+package com.petros.efthymiou.dailypulse
 
 expect class Platform {
     val osName: String
@@ -8,3 +8,4 @@ expect class Platform {
 
     fun logSystemInfo()
 }
+

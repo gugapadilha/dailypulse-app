@@ -1,7 +1,10 @@
-package com.guga.dailypulse
+package com.petros.efthymiou.dailypulse
 
-import platform.UIKit.UiDevice
-actual class Platform(){
+import platform.Foundation.NSLog
+import platform.UIKit.UIDevice
+import platform.UIKit.UIScreen
+
+actual class Platform() {
     actual val osName: String
         get() = UIDevice.currentDevice.systemName
     actual val osVersion: String
@@ -12,7 +15,8 @@ actual class Platform(){
         get() = UIScreen.mainScreen.scale.toInt()
 
     actual fun logSystemInfo() {
-        NSLog("($osName, $osVersion, $deviceModel, $density")
+        NSLog(
+            "($osName, $osVersion, $deviceModel, $density)"
+        )
     }
-
 }
