@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 class ArticlesViewModel: BaseViewModel() {
 
     //will be the information between interface and ui - mutable state flow
-    private val _articleState: MutableStateFlow<ArticlesState> = MutableStateFlow(ArticlesState())
+    private val _articleState: MutableStateFlow<ArticlesState> = MutableStateFlow(ArticlesState(loading = true))
 
     //immutable state flow
     val articlesState: StateFlow<ArticlesState> get() = _articleState
@@ -20,8 +20,11 @@ class ArticlesViewModel: BaseViewModel() {
     private fun getArticles() {
         scope.launch {
             //run any type of asynchronous code without blocking the main thread
+            val fetched = fetchArticles()
+
             delay(500)
-            _articleState.emit(ArticlesState())
+
+            _articleState.emit(ArticlesState(articles = fetched))
         }
     }
 
