@@ -1,13 +1,18 @@
 package com.petros.efthymiou.dailypulse.android.screens
 
+import android.content.Loader
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -37,8 +42,8 @@ fun ArticleScreen(
 @Composable
 fun ArticleListView(articles: List<Article>) {
 
-    LazyColumn(modifier = Modifier.fillMaxSize()){
-        items(articles){article ->
+    LazyColumn(modifier = Modifier.fillMaxSize()) {
+        items(articles) { article ->
             ArticleItemView(article = article)
         }
     }
@@ -54,9 +59,10 @@ fun ArticleItemView(article: Article) {
     ) {
         AsyncImage(model = article.imageUrl, contentDescription = null)
         Spacer(modifier = Modifier.height(4.dp))
-        Text(text = article.title,
+        Text(
+            text = article.title,
             style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 22.sp)
-            )
+        )
         Spacer(modifier = Modifier.height(8.dp))
         Text(text = article.desc)
         Spacer(modifier = Modifier.height(4.dp))
@@ -66,5 +72,19 @@ fun ArticleItemView(article: Article) {
             modifier = Modifier.align(Alignment.End)
         )
         Spacer(modifier = Modifier.height(4.dp))
+    }
+}
+
+@Composable
+fun Loader() {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        CircularProgressIndicator(
+            modifier = Modifier.width(64.dp),
+            color = MaterialTheme.colorScheme.surfaceVariant,
+            trackColor = MaterialTheme.colorScheme.secondary
+        )
     }
 }
