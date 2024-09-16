@@ -75,7 +75,6 @@ fun ArticleListView(articles: List<Article>) {
             ArticleItemView(article = article)
         }
     }
-
 }
 
 @Composable
