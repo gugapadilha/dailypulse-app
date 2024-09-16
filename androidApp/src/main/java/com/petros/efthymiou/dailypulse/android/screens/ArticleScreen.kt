@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
@@ -85,6 +86,17 @@ fun Loader() {
             modifier = Modifier.width(64.dp),
             color = MaterialTheme.colorScheme.surfaceVariant,
             trackColor = MaterialTheme.colorScheme.secondary
+        )
+    }
+}
+
+@Composable
+fun ErrorMessage(message: String) {
+    Box(modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center)
+    {
+        Text(text = message,
+            style = TextStyle(fontSize = 28.sp, textAlign = TextAlign.Center)
         )
     }
 }
