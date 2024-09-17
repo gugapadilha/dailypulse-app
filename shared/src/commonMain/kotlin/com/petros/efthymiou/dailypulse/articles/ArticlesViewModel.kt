@@ -19,10 +19,16 @@ class ArticlesViewModel: BaseViewModel() {
     }
     private fun getArticles() {
         scope.launch {
+            delay(1500)
+
+            _articleState.emit(ArticlesState(error = "Something went wrong"))
+
+            delay(1500)
+
+
             //run any type of asynchronous code without blocking the main thread
             val fetched = fetchArticles()
 
-            delay(500)
 
             _articleState.emit(ArticlesState(articles = fetched))
         }
