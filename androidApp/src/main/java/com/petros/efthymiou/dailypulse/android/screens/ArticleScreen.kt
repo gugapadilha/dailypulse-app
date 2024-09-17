@@ -61,10 +61,13 @@ private fun AppBar(
     TopAppBar(
         title = { Text(text = "Articles") },
         actions = {
+            IconButton(onClick = onAboutButtonClick) {
+
                 Icon(
                     imageVector = Icons.Outlined.Info,
                     contentDescription = "About Device Button",
                 )
+            }
         }
     )
 }
@@ -120,10 +123,13 @@ fun Loader() {
 
 @Composable
 fun ErrorMessage(message: String) {
-    Box(modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center)
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    )
     {
-        Text(text = message,
+        Text(
+            text = message,
             style = TextStyle(fontSize = 28.sp, textAlign = TextAlign.Center)
         )
     }
