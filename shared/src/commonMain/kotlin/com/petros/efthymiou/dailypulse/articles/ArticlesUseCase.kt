@@ -12,7 +12,7 @@ class ArticlesUseCase(private val service: ArticleService) {
             raw.title,
             raw.desc ?: "Click to find out more",
             raw.date,
-            raw.imageUrl?: ""
+            raw.imageUrl?: "https://ovicio.com.br/wp-content/uploads/2020/09/20200925-sword-art.jpg"
         )
     }
 }
