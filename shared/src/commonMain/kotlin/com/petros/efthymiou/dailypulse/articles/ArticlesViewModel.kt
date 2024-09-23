@@ -34,26 +34,4 @@ class ArticlesViewModel: BaseViewModel() {
         }
     }
 
-    suspend fun fetchArticles(): List<Article> = mockArticles
-
-    private val mockArticles = listOf(
-        Article(
-            "Stocket market today",
-            "foafsj faojif asfiojasfojias aofs fhu a sidjas pfgaos usah dbsuasi",
-            "2023-11-09",
-            "https://ovicio.com.br/wp-content/uploads/2020/09/20200925-sword-art.jpg"
-        ),
-        Article(
-            "Stocket market today",
-            "foafsj faojif asfiojasfojias aofs fhu a sidjas pfgaos usah dbsuasi",
-            "2023-11-09",
-            "https://ovicio.com.br/wp-content/uploads/2020/09/20200925-sword-art.jpg"
-        ),
-        Article(
-            "Stocket market today",
-            "foafsj faojif asfiojasfojias aofs fhu a sidjas pfgaos usah dbsuasi",
-            "2023-11-09",
-            "https://ovicio.com.br/wp-content/uploads/2020/09/20200925-sword-art.jpg"
-        )
-    )
 }
