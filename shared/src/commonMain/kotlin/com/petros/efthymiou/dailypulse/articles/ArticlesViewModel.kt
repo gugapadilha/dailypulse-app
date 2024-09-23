@@ -18,7 +18,7 @@ class ArticlesViewModel: BaseViewModel() {
     //immutable state flow
     val articlesState: StateFlow<ArticlesState> get() = _articleState
 
-    val useCase: ArticlesUseCase
+    private val useCase: ArticlesUseCase
 
     init {
         val httpClient = HttpClient{
@@ -30,6 +30,9 @@ class ArticlesViewModel: BaseViewModel() {
                     })
             }
         }
+
+        val service = ArticleService(httpClient)
+        useCase = ArticlesUseCase(service)
         getArticles()
     }
     private fun getArticles() {
