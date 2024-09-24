@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
 
-class ArticlesViewModel: BaseViewModel() {
+class ArticlesViewModel(private val useCase: ArticlesUseCase): BaseViewModel() {
 
     //will be the information between interface and ui - mutable state flow
     private val _articleState: MutableStateFlow<ArticlesState> = MutableStateFlow(ArticlesState(loading = true))
@@ -18,21 +18,7 @@ class ArticlesViewModel: BaseViewModel() {
     //immutable state flow
     val articlesState: StateFlow<ArticlesState> get() = _articleState
 
-    private val useCase: ArticlesUseCase
-
     init {
-        val httpClient = HttpClient{
-            install(ContentNegotiation){
-                json(Json{
-                    prettyPrint = true
-                    isLenient = true
-                    ignoreUnknownKeys = true
-                    })
-            }
-        }
-
-        val service = ArticleService(httpClient)
-        useCase = ArticlesUseCase(service)
         getArticles()
     }
     private fun getArticles() {
