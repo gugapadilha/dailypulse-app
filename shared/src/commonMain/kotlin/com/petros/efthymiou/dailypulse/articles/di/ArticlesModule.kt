@@ -11,5 +11,5 @@ val articleModule = module {
     //simply using get, cause Koin knows we referring ArticlesService and ArticleUseCase instantiation
     single<ArticleService> { ArticleService(get()) }
     single<ArticlesUseCase> { ArticlesUseCase(get()) }
-    single<ArticlesViewModel> { ArticlesViewModel()}
+    single<ArticlesViewModel> { ArticlesViewModel(get())}
 }
