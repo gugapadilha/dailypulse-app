@@ -15,7 +15,7 @@ import com.petros.efthymiou.dailypulse.android.screens.Screens
 import com.petros.efthymiou.dailypulse.articles.ArticlesViewModel
 
 @Composable
-fun AppScaffold(articlesViewModel: ArticlesViewModel) {
+fun AppScaffold() {
     val navController = rememberNavController()
 
     Scaffold {
@@ -23,8 +23,7 @@ fun AppScaffold(articlesViewModel: ArticlesViewModel) {
             navController = navController,
             modifier = Modifier
                 .fillMaxSize()
-                .padding(it),
-            articlesViewModel
+                .padding(it)
         )
     }
 }
@@ -32,18 +31,19 @@ fun AppScaffold(articlesViewModel: ArticlesViewModel) {
 @Composable
 fun AppNavHost(
     navController: NavHostController,
-    modifier: Modifier = Modifier,
-    articlesViewModel: ArticlesViewModel
+    modifier: Modifier = Modifier
 ) {
     NavHost(
         navController = navController, startDestination = Screens.ARTICLES.route,
         modifier = modifier,
     ) {
-        composable(Screens.ARTICLES.route){
-            ArticleScreen(onAboutButtonClick = { navController.navigate(Screens.ABOUT_DEVICE.route) }, articlesViewModel = articlesViewModel)
+        composable(Screens.ARTICLES.route) {
+            ArticleScreen(
+                onAboutButtonClick = { navController.navigate(Screens.ABOUT_DEVICE.route) },
+            )
         }
-        composable(Screens.ABOUT_DEVICE.route){
-            AboutScreen(onUpButtonClick = {navController.popBackStack()})
+        composable(Screens.ABOUT_DEVICE.route) {
+            AboutScreen(onUpButtonClick = { navController.popBackStack() })
         }
     }
 
