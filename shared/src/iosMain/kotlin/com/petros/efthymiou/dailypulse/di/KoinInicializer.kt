@@ -15,4 +15,5 @@ fun initKoin() {
     class ArticlesInjector : KoinComponent {
         val articlesViewModel: ArticlesViewModel by inject()
     }
+
 }
