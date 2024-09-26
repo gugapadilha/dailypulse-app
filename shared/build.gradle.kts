@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     id("co.touchlab.skie") version "0.4.19"
     kotlin("plugin.serialization") version "1.9.20"
+    alias(libs.plugins.sqlDelight)
 }
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
@@ -68,5 +69,13 @@ android {
     compileSdk = 34
     defaultConfig {
         minSdk = 24
+    }
+}
+
+sqldelight {
+    databases {
+        create(name = "DailyPulseDatabase"){
+            packageName.set("petros.efthymiou.dailypulse.db")
+        }
     }
 }
