@@ -8,3 +8,11 @@ CREATE TABLE Article (
 insertArticle:
 INSERT INTO Article(title, desc, date, imageUrl)
 VALUES(?, ?, ?, ?);
+
+selectAllArtitcles:
+SELECT Article.*
+FROM Article;
+
+
+removeAllArticles:
+DELETE FROM Article;
