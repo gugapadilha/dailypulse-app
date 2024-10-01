@@ -1,3 +1,6 @@
-CREATE TABLE  (
-
+CREATE TABLE Artcile (
+    title TEXT NOT NULL,
+    desc TEXT,
+    date TEXT NOT NULL,
+    imageUrl TEXT
 );
