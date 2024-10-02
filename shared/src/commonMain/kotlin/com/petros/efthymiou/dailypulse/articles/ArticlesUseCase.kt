@@ -18,7 +18,7 @@ class ArticlesUseCase(private val repo: ArticlesRepository) {
         Article(
             raw.title ?: "",
             raw.desc ?: "Click to find out more",
-            getDaysAgoString(raw.date),
+            getDaysAgoString(raw.date.toString()),
             raw.imageUrl?: "https://ovicio.com.br/wp-content/uploads/2020/09/20200925-sword-art.jpg"
         )
     }
