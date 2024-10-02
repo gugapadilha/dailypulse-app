@@ -22,7 +22,7 @@ class ArticlesDataSource(private val database: DailyPulseDatabase) {
 
     private fun insertArticle(articleRaw: ArticleRaw){
         database.dailyPulseDatabaseQueries.insertArticle(
-            articleRaw.title.toString(),
+            articleRaw.title,
             articleRaw.desc,
             articleRaw.date,
             articleRaw.imageUrl

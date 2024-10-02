@@ -11,6 +11,6 @@ actual class DatabaseDriverFactory(private val context: Context) {
         AndroidSqliteDriver(
             schema = DailyPulseDatabase.Schema,
             context = context,
-            name = "DailyPulse.Database.db"
+            name = "DailyPulseDatabase.db"
         )
 }

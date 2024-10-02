@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class ArticleRaw(
     @SerialName("title")
-    val title: String?,
+    val title: String,
     @SerialName("description")
     val desc: String?,
     @SerialName("publishedAt")
