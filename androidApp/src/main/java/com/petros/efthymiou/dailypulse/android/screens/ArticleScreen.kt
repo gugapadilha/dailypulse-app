@@ -46,14 +46,12 @@ fun ArticleScreen(
 
     Column {
         AppBar(onAboutButtonClick)
-        if (articleState.value.loading)
-            Loader()
+
         if (articleState.value.error != null)
             ErrorMessage(message = articleState.value.error!!)
         if (articleState.value.articles.isNotEmpty())
             ArticleListView(articlesViewModel)
     }
-
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -115,20 +113,6 @@ fun ArticleItemView(article: Article) {
             modifier = Modifier.align(Alignment.End)
         )
         Spacer(modifier = Modifier.height(4.dp))
-    }
-}
-
-@Composable
-fun Loader() {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        CircularProgressIndicator(
-            modifier = Modifier.width(64.dp),
-            color = MaterialTheme.colorScheme.surfaceVariant,
-            trackColor = MaterialTheme.colorScheme.secondary
-        )
     }
 }
 
