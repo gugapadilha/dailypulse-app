@@ -21,11 +21,11 @@ class ArticlesViewModel(private val useCase: ArticlesUseCase): BaseViewModel() {
     init {
         getArticles()
     }
-    private fun getArticles() {
+     fun getArticles(forceFetch: Boolean = false) {
         scope.launch {
 
             //run any type of asynchronous code without blocking the main thread
-            val fetched = useCase.getArticles()
+            val fetched = useCase.getArticles(forceFetch)
 
             _articleState.emit(ArticlesState(articles = fetched))
         }
