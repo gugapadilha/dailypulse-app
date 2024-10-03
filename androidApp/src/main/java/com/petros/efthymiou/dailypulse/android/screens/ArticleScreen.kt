@@ -31,6 +31,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.google.accompanist.swiperefresh.SwipeRefresh
+import com.google.accompanist.swiperefresh.SwipeRefreshState
 import com.petros.efthymiou.dailypulse.articles.Article
 import com.petros.efthymiou.dailypulse.articles.ArticlesViewModel
 import org.koin.androidx.compose.getViewModel
@@ -49,7 +51,7 @@ fun ArticleScreen(
         if (articleState.value.error != null)
             ErrorMessage(message = articleState.value.error!!)
         if (articleState.value.articles.isNotEmpty())
-            ArticleListView(articles = articlesViewModel.articlesState.value.articles)
+            ArticleListView(articlesViewModel)
     }
 
 }
@@ -74,13 +76,21 @@ private fun AppBar(
 }
 
 @Composable
-fun ArticleListView(articles: List<Article>) {
+fun ArticleListView(viewModel: ArticlesViewModel) {
 
-    LazyColumn(modifier = Modifier.fillMaxSize()) {
-        items(articles) { article ->
-            ArticleItemView(article = article)
+
+    SwipeRefresh(state =SwipeRefreshState(viewModel.articlesState.value.loading)
+        , onRefresh = {
+            viewModel.getArticles(true)
+        }) {
+        LazyColumn(modifier = Modifier.fillMaxSize()) {
+            items(viewModel.articlesState.value.articles) { article ->
+                ArticleItemView(article = article)
+            }
         }
     }
+
+
 }
 
 @Composable
