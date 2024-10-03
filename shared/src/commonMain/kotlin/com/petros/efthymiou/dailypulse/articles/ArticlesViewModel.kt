@@ -26,8 +26,6 @@ class ArticlesViewModel(private val useCase: ArticlesUseCase): BaseViewModel() {
 
             _articleState.emit(ArticlesState(loading = true, articles = _articleState.value.articles))
 
-            delay(1000)
-
             //run any type of asynchronous code without blocking the main thread
             val fetched = useCase.getArticles(forceFetch)
 
