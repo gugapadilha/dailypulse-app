@@ -10,8 +10,8 @@ class SourceService(private val httpClient: HttpClient) {
     private val sources = "sources"
 
 
-    suspend fun fetchSources(): List<ArticleRaw>{
-        val response: ArticlesResponse = httpClient.get("https://newsapi.org/v2/top-headlines?sources=$sources&apiKey=$apiKey").body()
-        return response.articles
+    suspend fun fetchSources(): List<SourcesRaw>{
+        val response: SourceResponse = httpClient.get("https://newsapi.org/v2/top-headlines?sources=$sources&apiKey=$apiKey").body()
+        return response.sources
     }
 }

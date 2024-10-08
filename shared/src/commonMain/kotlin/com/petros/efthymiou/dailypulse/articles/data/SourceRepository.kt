@@ -4,7 +4,7 @@ class SourceRepository(
     private val service: SourceService
 ) {
 
-    private suspend fun fetchSource(): List<ArticleRaw> {
+     suspend fun fetchSource(): List<SourcesRaw> {
         return service.fetchSources()
     }
 }
