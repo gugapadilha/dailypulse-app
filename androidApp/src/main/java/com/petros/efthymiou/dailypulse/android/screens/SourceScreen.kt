@@ -23,11 +23,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.petros.efthymiou.dailypulse.articles.domain.Source
 import com.petros.efthymiou.dailypulse.articles.presentation.SourceViewModel
+import org.koin.androidx.compose.getViewModel
 
 @Composable
 fun SourceScreen(
     onUpButtonClick: () -> Unit,
-    viewModel: SourceViewModel
+    viewModel: SourceViewModel = getViewModel()
 ) {
 
     Column {
