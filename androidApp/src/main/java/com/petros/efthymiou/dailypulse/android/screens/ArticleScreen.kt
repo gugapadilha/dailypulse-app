@@ -11,6 +11,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Info
+import androidx.compose.material.icons.outlined.List
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -42,6 +43,7 @@ fun ArticleScreen(
 
     Column {
         AppBar(onAboutButtonClick)
+        AppBarSource(onAboutButtonClick)
 
         if (articleState.value.error != null)
             ErrorMessage(message = articleState.value.error!!)
@@ -61,6 +63,25 @@ private fun AppBar(
             IconButton(onClick = onAboutButtonClick) {
 
                 Icon(
+                    imageVector = Icons.Outlined.List,
+                    contentDescription = "About Device Button",
+                )
+            }
+        }
+    )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun AppBarSource(
+    onAboutButtonClick: () -> Unit
+) {
+    TopAppBar(
+        title = { Text(text = "Articles") },
+        actions = {
+            IconButton(onClick = onAboutButtonClick) {
+
+                Icon(
                     imageVector = Icons.Outlined.Info,
                     contentDescription = "About Device Button",
                 )
@@ -68,6 +89,7 @@ private fun AppBar(
         }
     )
 }
+
 
 @Composable
 fun ArticleListView(viewModel: ArticlesViewModel) {
