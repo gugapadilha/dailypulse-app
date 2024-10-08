@@ -40,6 +40,7 @@ fun AppNavHost(
         composable(Screens.ARTICLES.route) {
             ArticleScreen(
                 onAboutButtonClick = { navController.navigate(Screens.ABOUT_DEVICE.route) },
+                onSourceButtonClick = { navController.navigate(Screens.SOURCES.route) }
             )
         }
         composable(Screens.ABOUT_DEVICE.route) {

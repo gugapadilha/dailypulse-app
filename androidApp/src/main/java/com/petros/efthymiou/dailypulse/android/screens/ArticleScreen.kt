@@ -37,13 +37,13 @@ import org.koin.androidx.compose.getViewModel
 @Composable
 fun ArticleScreen(
     onAboutButtonClick: () -> Unit,
+    onSourceButtonClick: () -> Unit,
     articlesViewModel: ArticlesViewModel = getViewModel()
 ) {
     val articleState = articlesViewModel.articlesState.collectAsState()
 
     Column {
-        AppBar(onAboutButtonClick)
-        AppBarSource(onAboutButtonClick)
+        AppBar(onAboutButtonClick, onSourceButtonClick)
 
         if (articleState.value.error != null)
             ErrorMessage(message = articleState.value.error!!)
@@ -55,7 +55,8 @@ fun ArticleScreen(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun AppBar(
-    onAboutButtonClick: () -> Unit
+    onAboutButtonClick: () -> Unit,
+    onSourceButtonClick: () -> Unit
 ) {
     TopAppBar(
         title = { Text(text = "Articles") },
@@ -67,38 +68,24 @@ private fun AppBar(
                     contentDescription = "About Device Button",
                 )
             }
-        }
-    )
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun AppBarSource(
-    onAboutButtonClick: () -> Unit
-) {
-    TopAppBar(
-        title = { Text(text = "Articles") },
-        actions = {
-            IconButton(onClick = onAboutButtonClick) {
+            IconButton(onClick = onSourceButtonClick) {
 
                 Icon(
                     imageVector = Icons.Outlined.Info,
-                    contentDescription = "About Device Button",
+                    contentDescription = "Source Button",
                 )
             }
         }
     )
 }
 
-
 @Composable
 fun ArticleListView(viewModel: ArticlesViewModel) {
 
 
-    SwipeRefresh(state =SwipeRefreshState(viewModel.articlesState.value.loading)
-        , onRefresh = {
-            viewModel.getArticles(true)
-        }) {
+    SwipeRefresh(state = SwipeRefreshState(viewModel.articlesState.value.loading), onRefresh = {
+        viewModel.getArticles(true)
+    }) {
         LazyColumn(modifier = Modifier.fillMaxSize()) {
             items(viewModel.articlesState.value.articles) { article ->
                 ArticleItemView(article = article)
