@@ -53,12 +53,10 @@ private fun Toolbar(
 
 @Composable
 fun SourceListView(viewModel: SourceViewModel) {
-    // Executa getSources apenas uma vez quando a composição inicializa
     LaunchedEffect(Unit) {
         viewModel.getSources()
     }
 
-    // Obtenha o estado atual da lista de fontes
     val sourceState = viewModel.sourcesState.value
 
     if (sourceState.sources.isNotEmpty()) {
@@ -68,10 +66,8 @@ fun SourceListView(viewModel: SourceViewModel) {
             }
         }
     } else if (sourceState.loading) {
-        // Mostre uma indicação de carregamento enquanto os dados estão sendo carregados
         LoadingView()
     } else if (sourceState.error != null) {
-        // Mostre uma mensagem de erro caso ocorra algum problema
         ErrorMessage(sourceState.error!!)
     }
 }
