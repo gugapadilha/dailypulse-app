@@ -1,4 +1,8 @@
-package com.petros.efthymiou.dailypulse.articles.data
+package com.petros.efthymiou.dailypulse.articles.data.articles
+
+import com.petros.efthymiou.dailypulse.articles.data.articles.ArticleRaw
+import com.petros.efthymiou.dailypulse.articles.data.articles.ArticleService
+import com.petros.efthymiou.dailypulse.articles.data.articles.ArticlesDataSource
 
 class ArticlesRepository(
     private val dataSource: ArticlesDataSource,

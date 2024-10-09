@@ -1,8 +1,7 @@
-package com.petros.efthymiou.dailypulse.articles.domain
+package com.petros.efthymiou.dailypulse.articles.domain.source
 
-import com.petros.efthymiou.dailypulse.articles.data.ArticleRaw
-import com.petros.efthymiou.dailypulse.articles.data.SourceRepository
-import com.petros.efthymiou.dailypulse.articles.data.SourcesRaw
+import com.petros.efthymiou.dailypulse.articles.data.source.SourceRepository
+import com.petros.efthymiou.dailypulse.articles.data.source.SourcesRaw
 
 class SourceUseCase(private val repo: SourceRepository) {
 

@@ -1,4 +1,4 @@
-package com.petros.efthymiou.dailypulse.articles.domain
+package com.petros.efthymiou.dailypulse.articles.domain.source
 
 data class Source(
     val id: String?,

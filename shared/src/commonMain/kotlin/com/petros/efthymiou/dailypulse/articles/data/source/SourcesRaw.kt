@@ -1,4 +1,4 @@
-package com.petros.efthymiou.dailypulse.articles.data
+package com.petros.efthymiou.dailypulse.articles.data.source
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

@@ -23,8 +23,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.petros.efthymiou.dailypulse.articles.domain.Source
-import com.petros.efthymiou.dailypulse.articles.presentation.SourceViewModel
+import com.petros.efthymiou.dailypulse.articles.domain.source.Source
+import com.petros.efthymiou.dailypulse.articles.presentation.source.SourceViewModel
 import org.koin.androidx.compose.getViewModel
 
 @Composable

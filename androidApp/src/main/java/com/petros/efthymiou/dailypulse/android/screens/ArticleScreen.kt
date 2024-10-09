@@ -30,8 +30,8 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.SwipeRefreshState
-import com.petros.efthymiou.dailypulse.articles.domain.Article
-import com.petros.efthymiou.dailypulse.articles.presentation.ArticlesViewModel
+import com.petros.efthymiou.dailypulse.articles.domain.articles.Article
+import com.petros.efthymiou.dailypulse.articles.presentation.articles.ArticlesViewModel
 import org.koin.androidx.compose.getViewModel
 
 @Composable

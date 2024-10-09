@@ -1,4 +1,4 @@
-package com.petros.efthymiou.dailypulse.articles.data
+package com.petros.efthymiou.dailypulse.articles.data.source
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body

@@ -1,4 +1,4 @@
-package com.petros.efthymiou.dailypulse.articles.data
+package com.petros.efthymiou.dailypulse.articles.data.articles
 
 import petros.efthymiou.dailypulse.db.DailyPulseDatabase
 

@@ -1,7 +1,7 @@
-package com.petros.efthymiou.dailypulse.articles.domain
+package com.petros.efthymiou.dailypulse.articles.domain.articles
 
-import com.petros.efthymiou.dailypulse.articles.data.ArticleRaw
-import com.petros.efthymiou.dailypulse.articles.data.ArticlesRepository
+import com.petros.efthymiou.dailypulse.articles.data.articles.ArticleRaw
+import com.petros.efthymiou.dailypulse.articles.data.articles.ArticlesRepository
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.datetime.daysUntil

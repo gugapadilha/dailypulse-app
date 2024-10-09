@@ -1,14 +1,14 @@
 package com.petros.efthymiou.dailypulse.articles.di
 
-import com.petros.efthymiou.dailypulse.articles.data.ArticleService
-import com.petros.efthymiou.dailypulse.articles.data.ArticlesDataSource
-import com.petros.efthymiou.dailypulse.articles.data.ArticlesRepository
-import com.petros.efthymiou.dailypulse.articles.data.SourceRepository
-import com.petros.efthymiou.dailypulse.articles.data.SourceService
-import com.petros.efthymiou.dailypulse.articles.domain.ArticlesUseCase
-import com.petros.efthymiou.dailypulse.articles.domain.SourceUseCase
-import com.petros.efthymiou.dailypulse.articles.presentation.ArticlesViewModel
-import com.petros.efthymiou.dailypulse.articles.presentation.SourceViewModel
+import com.petros.efthymiou.dailypulse.articles.data.articles.ArticleService
+import com.petros.efthymiou.dailypulse.articles.data.articles.ArticlesDataSource
+import com.petros.efthymiou.dailypulse.articles.data.articles.ArticlesRepository
+import com.petros.efthymiou.dailypulse.articles.data.source.SourceRepository
+import com.petros.efthymiou.dailypulse.articles.data.source.SourceService
+import com.petros.efthymiou.dailypulse.articles.domain.articles.ArticlesUseCase
+import com.petros.efthymiou.dailypulse.articles.domain.source.SourceUseCase
+import com.petros.efthymiou.dailypulse.articles.presentation.articles.ArticlesViewModel
+import com.petros.efthymiou.dailypulse.articles.presentation.source.SourceViewModel
 import org.koin.dsl.module
 
 val articleModule = module {
@@ -19,8 +19,8 @@ val articleModule = module {
     single<ArticlesViewModel> { ArticlesViewModel(get()) }
     single<ArticlesDataSource> { ArticlesDataSource(get()) }
     single<ArticlesRepository> { ArticlesRepository(get(), get()) }
-    single<SourceUseCase> {SourceUseCase(get())}
-    single<SourceViewModel> {SourceViewModel(get())}
+    single<SourceUseCase> { SourceUseCase(get()) }
+    single<SourceViewModel> { SourceViewModel(get()) }
     single<SourceRepository> { SourceRepository(get()) }
-    single<SourceService> {SourceService(get())}
+    single<SourceService> { SourceService(get()) }
 }

@@ -1,7 +1,8 @@
-package com.petros.efthymiou.dailypulse.articles.presentation
+package com.petros.efthymiou.dailypulse.articles.presentation.articles
 
 import com.petros.efthymiou.dailypulse.BaseViewModel
-import com.petros.efthymiou.dailypulse.articles.domain.ArticlesUseCase
+import com.petros.efthymiou.dailypulse.articles.domain.articles.ArticlesUseCase
+import com.petros.efthymiou.dailypulse.articles.presentation.articles.ArticlesState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
