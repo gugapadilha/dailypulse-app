@@ -1,5 +1,6 @@
 package com.petros.efthymiou.dailypulse.android.screens
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,6 +15,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -51,15 +53,35 @@ private fun Toolbar(
 
 @Composable
 fun SourceListView(viewModel: SourceViewModel) {
-
+    // Executa getSources apenas uma vez quando a composição inicializa
+    LaunchedEffect(Unit) {
         viewModel.getSources()
+    }
+
+    // Obtenha o estado atual da lista de fontes
+    val sourceState = viewModel.sourcesState.value
+
+    if (sourceState.sources.isNotEmpty()) {
         LazyColumn(modifier = Modifier.fillMaxSize()) {
-            items(viewModel.sourcesState.value.sources) { source ->
+            items(sourceState.sources) { source ->
                 SourceItemView(source = source)
             }
         }
+    } else if (sourceState.loading) {
+        // Mostre uma indicação de carregamento enquanto os dados estão sendo carregados
+        LoadingView()
+    } else if (sourceState.error != null) {
+        // Mostre uma mensagem de erro caso ocorra algum problema
+        ErrorMessage(sourceState.error!!)
     }
+}
 
+@Composable
+fun LoadingView() {
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+        Text(text = "Loading...", style = TextStyle(fontSize = 22.sp))
+    }
+}
 
 @Composable
 fun SourceItemView(source: Source) {

@@ -8,7 +8,7 @@ import kotlinx.coroutines.launch
 
 class SourceViewModel(private val useCase: SourceUseCase) : BaseViewModel() {
 
-    private val _sourceState: MutableStateFlow<SourceState> = MutableStateFlow(SourceState())
+    private val _sourceState: MutableStateFlow<SourceState> = MutableStateFlow(SourceState(loading = true))
 
     val sourcesState: StateFlow<SourceState> get() = _sourceState
 
@@ -18,12 +18,12 @@ class SourceViewModel(private val useCase: SourceUseCase) : BaseViewModel() {
     fun getSources() {
         scope.launch {
 
-            _sourceState.emit(SourceState(sources = _sourceState.value.sources))
+            _sourceState.emit(SourceState(loading = true, sources = _sourceState.value.sources))
 
             //run any type of asynchronous code without blocking the main thread
             val fetched = useCase.getSources()
 
-            _sourceState.emit(SourceState())
+            _sourceState.emit(SourceState(sources = fetched))
         }
     }
 

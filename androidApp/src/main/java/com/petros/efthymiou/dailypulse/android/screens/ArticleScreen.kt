@@ -61,18 +61,16 @@ private fun AppBar(
     TopAppBar(
         title = { Text(text = "Articles") },
         actions = {
-            IconButton(onClick = onAboutButtonClick) {
-
+            IconButton(onClick = onSourceButtonClick) {
                 Icon(
                     imageVector = Icons.Outlined.List,
-                    contentDescription = "About Device Button",
+                    contentDescription = "Source Button",
                 )
             }
-            IconButton(onClick = onSourceButtonClick) {
-
+            IconButton(onClick = onAboutButtonClick) {
                 Icon(
                     imageVector = Icons.Outlined.Info,
-                    contentDescription = "Source Button",
+                    contentDescription = "About Device Button",
                 )
             }
         }

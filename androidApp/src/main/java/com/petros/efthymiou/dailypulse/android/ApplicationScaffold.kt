@@ -48,7 +48,7 @@ fun AppNavHost(
         }
         composable(Screens.SOURCES.route) {
             SourceScreen(
-                 onUpButtonClick = { navController.navigate(Screens.ABOUT_DEVICE.route) },
+                onUpButtonClick = { navController.popBackStack() }
             )
         }
 
