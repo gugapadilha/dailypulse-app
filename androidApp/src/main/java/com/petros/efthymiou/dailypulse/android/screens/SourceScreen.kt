@@ -94,17 +94,17 @@ fun SourceItemView(source: Source) {
         Spacer(modifier = Modifier.height(8.dp))
         Text(text = source.desc.toString())
         Spacer(modifier = Modifier.height(4.dp))
-        Text(
-            text = source.country,
-            style = TextStyle(color = Color.Gray),
-            modifier = Modifier.align(Alignment.End)
-        )
-        Text(
-            text = source.language,
-            style = TextStyle(color = Color.Gray),
-            modifier = Modifier.align(Alignment.End)
-        )
-        Spacer(modifier = Modifier.height(4.dp))
+
+        Column(
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(
+                text = source.country + " - " + source.language,
+                style = TextStyle(color = Color.Gray),
+                modifier = Modifier.align(Alignment.End)
+            )
+            Spacer(modifier = Modifier.height(4.dp))
+        }
 
     }
 }
