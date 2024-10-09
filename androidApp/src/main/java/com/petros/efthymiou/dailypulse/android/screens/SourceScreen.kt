@@ -105,7 +105,6 @@ fun SourceItemView(source: Source) {
             )
             Spacer(modifier = Modifier.height(4.dp))
         }
-
     }
 }
 
