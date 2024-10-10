@@ -19,7 +19,7 @@
 
 <strong>Android and iOS Images</strong>
 
-(![image](https://github.com/user-attachments/assets/199bcfc6-cea0-44e4-ae8c-c15d47581ce2)
+![image](https://github.com/user-attachments/assets/54ab6841-1582-47c6-b651-93b74846d57e)
 ![image](https://github.com/user-attachments/assets/354e96a8-e6b4-42bb-bdd7-98de9cbe6f43)
 ![image](https://github.com/user-attachments/assets/a49cd2b3-9518-44f9-a4d7-2a1dc07345b4)
   <br>
