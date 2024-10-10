@@ -17,7 +17,9 @@
  + Swift UI.
    ### Images Mobile Project:
 
-<strong>Android Images</strong>
+<strong>Android and iOS Images</strong>
 
 (![image](https://github.com/user-attachments/assets/199bcfc6-cea0-44e4-ae8c-c15d47581ce2)
+<br>
+![image](https://github.com/user-attachments/assets/e2302e91-562f-4b6f-9327-779bc2f6682a)
 
