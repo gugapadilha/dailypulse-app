@@ -15,9 +15,8 @@
  + Koin;
  + Jetpack Compose;
  + Swift UI.
-   ### Images Mobile Project:
-
-<strong>Android and iOS Images</strong>
+   
+   ### Images Android and iOS Mobile Project:
 
 ![image](https://github.com/user-attachments/assets/54ab6841-1582-47c6-b651-93b74846d57e)
 ![image](https://github.com/user-attachments/assets/354e96a8-e6b4-42bb-bdd7-98de9cbe6f43)
