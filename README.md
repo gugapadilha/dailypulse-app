@@ -1,6 +1,10 @@
-# DailyPulse
-Educational repo offered as material in the course Kotlin Multiplatform Masterclass.
-The course aims to teach the state-of-art KMP development. 
+<h1> Project: Note List App<h1> 
+
+  > Status: Finished ✔️
+  
+  ### Application developed in Jetpack Compose with KMM(KOTLIN MULTPLATAFORM MOBILE), a simple articles/news api that shows all the latests updates in the world. I also used local database to save the latests new and display to user if they not have a internet connection at the moment. I also use Clean Architecture, Ktor, SqlDelight and MVI.
+  
+  <br>
 
 Daily Pulse includes a native Android and a native iOS apps, where the business logic and inftrastructure is shared in a KMP module.
 
